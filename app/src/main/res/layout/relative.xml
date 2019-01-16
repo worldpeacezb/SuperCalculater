@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#EAEAEA"
+    android:background="#DBDBDB"
     tools:context=".MainActivity"
     >
 
@@ -15,9 +15,9 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_weight="1"
-        android:background="#FFF0F5"
+        android:background="#FFFFFF"
         android:gravity="center_vertical|end"
-        android:text="0"
+        android:hint="我"
         android:textSize="40sp" />
 
 
@@ -35,9 +35,10 @@
             android:text="C"
             android:gravity="right|bottom"
             android:textSize="30sp"
-            android:background="#EAEAEA"
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
 
 
@@ -46,12 +47,13 @@
             android:layout_width="184dp"
             android:layout_height="80dp"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:gravity="right|bottom"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
             android:text="del"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
     <LinearLayout
@@ -68,9 +70,10 @@
             android:text="夫"
             android:gravity="right|bottom"
             android:textSize="30sp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_8"
@@ -80,9 +83,10 @@
             android:gravity="right|bottom"
             android:textSize="30sp"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_9"
@@ -92,9 +96,10 @@
             android:textSize="30sp"
             android:gravity="right|bottom"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_sub"
@@ -104,9 +109,10 @@
             android:textSize="30sp"
             android:gravity="right|bottom"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
     </LinearLayout>
 
@@ -124,9 +130,10 @@
             android:text="兄"
             android:gravity="right|bottom"
             android:textSize="30sp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_5"
@@ -136,9 +143,10 @@
             android:gravity="right|bottom"
             android:textSize="30sp"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_6"
@@ -148,9 +156,10 @@
             android:textSize="30sp"
             android:gravity="right|bottom"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
         <Button
             android:id="@+id/bt_add"
@@ -160,9 +169,10 @@
             android:textSize="30sp"
             android:gravity="right|bottom"
             android:layout_marginLeft="10dp"
-            android:background="#EAEAEA "
+            android:background="#DBDBDB"
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
+            style="?android:attr/borderlessButtonStyle"
             />
     </LinearLayout>
 
@@ -170,6 +180,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="40dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
@@ -187,9 +198,10 @@
                     android:id="@+id/bt_1"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:background="#EAEAEA "
+                    android:background="#DBDBDB"
                     android:text="    父"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    style="?android:attr/borderlessButtonStyle"/>
 
                 <Button
                     android:id="@+id/bt_2"
@@ -199,9 +211,10 @@
                     android:paddingRight="15sp"
                     android:paddingBottom="15sp"
                     android:layout_marginLeft="10dp"
-                    android:background="#EAEAEA "
+                    android:background="#DBDBDB"
                     android:text="母"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    style="?android:attr/borderlessButtonStyle"/>
 
             </LinearLayout>
 
@@ -217,7 +230,8 @@
             android:paddingRight="15sp"
             android:paddingBottom="15sp"
             android:text="="
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            style="?android:attr/borderlessButtonStyle"/>
 
     </LinearLayout>
 </LinearLayout>

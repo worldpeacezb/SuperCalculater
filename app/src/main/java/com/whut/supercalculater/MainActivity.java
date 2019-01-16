@@ -1,74 +1,71 @@
 package com.whut.supercalculater;
 
+import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.widget.RadioGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.PagerTabStrip;
-import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.app.Activity;
-import android.graphics.Color;
+public class MainActivity extends BaseActivity {
+    private ViewPager vp;
+    private RadioGroup rg;
+    private int[] rbs = {R.id.rb_switch1, R.id.rb_switch2, R.id.rb_switch3};
+    private List<Fragment> mFragments;
 
-public class MainActivity extends Activity {
-
-    private ViewPager pager;
-    private List<View> viewList = new ArrayList<View>();//数据源
-    private PagerAdapter viewAdapter;
-
-    private List<String> titles = new ArrayList<String>();//标题
-
-
-
-    private LayoutInflater inflater;
-
-    private PagerTabStrip pagerTitle;//ViewPager的标题
-
-
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //获取ViewPager
-        pager = (ViewPager) findViewById(R.id.view_pager);
-
-        //获取pagerTitle
-        pagerTitle = (PagerTabStrip) findViewById(R.id.pager_title);
-
-        //为标题设置属性，比如背景，颜色线等
-        pagerTitle.setBackgroundColor(Color.green(255));//设置背景颜色
-        pagerTitle.setTextColor(Color.BLACK);//设置标题文字的颜色
-        pagerTitle.setDrawFullUnderline(false);//将标题下的长分割线去掉
-        pagerTitle.setTabIndicatorColor(Color.BLUE);//设置标题下粗一点的短分割线的颜色
-
-        //添加标题
-        titles.add("计算器");
-        titles.add("亲戚关系");
-        titles.add("个税计算");
-
-
-
-
-        inflater = LayoutInflater.from(this);
-
-        //获取四个view
-        View view1 = inflater.inflate(R.layout.basic, null);
-        View view2 = inflater.inflate(R.layout.relative, null);
-        View view3 = inflater.inflate(R.layout.personal_tax, null);
-
-        //将四个View加入到集合
-        viewList.add(view1);
-        viewList.add(view2);
-        viewList.add(view3);
-
-        //实例化适配器
-        viewAdapter = new ViewAdapter(viewList,titles);
-
-        //设置适配器
-        pager.setAdapter(viewAdapter);
+    //简化后的方法
+    @Override
+    protected int getLayoutID() {
+        return R.layout.activity_main;
     }
 
+    @Override
+    protected void initView() {
+        vp = f(R.id.vp);
+        rg = f(R.id.rg);
+    }
+    @Override
+    protected void initData() {
 
+        mFragments=new ArrayList<>();
+        MainbasicFragment one=new MainbasicFragment();
+        MainrelativeFragment two=new MainrelativeFragment();
+        Mainpersonal_taxFragment three=new Mainpersonal_taxFragment();
+        mFragments.add(one);
+        mFragments.add(two);
+        mFragments.add(three);
+
+        // 设置填充器
+        vp.setAdapter(new PagerMainAdapter(getSupportFragmentManager(),mFragments));
+        // 设置缓存页面数
+        vp.setOffscreenPageLimit(2);
+
+    }
+
+    @Override
+    protected void initListener() {
+        //radioGroup的点击事件
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                for (int i = 0; i < rbs.length; i++) {
+                    if (rbs[i] != checkedId) continue;
+                    //加载滑动
+                    vp.setCurrentItem(i);
+                }
+            }
+        });
+        //ViewPager的点击事件 vp-rg互相监听：vp
+        vp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
+            @Override
+            public void onPageSelected(int position) {
+                rg.check(rbs[position]);
+            }
+        });
+        //设置一个默认页
+        rg.check(rbs[0]);
+    }
 }
+
+
